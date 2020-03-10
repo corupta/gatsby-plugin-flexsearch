@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-flexsearch-lang",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Search for Gatsby.js using FlexSearch.js",
   "main": "index.js",
   "homepage": "https://github.com/tmsss/gatsby-plugin-flexsearch#readme",
