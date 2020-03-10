@@ -41,9 +41,9 @@ exports.onPostBootstrap = function(_ref, options) {
         ) {
           try {
             if (lng === 'en') {
-              require('./lang/en')
+              require('./lang/en')(global.FlexSearch)
             } else if (lng === 'de') {
-              require('./lang/en')
+              require('./lang/en')(global.FlexSearch)
             } else {
               console.error(
                 'Language not supported by pre-defined stemmer or filter'
@@ -87,11 +87,9 @@ exports.onPostBootstrap = function(_ref, options) {
       }
     })
 
-    fullIndex[lng] = {
+    fs.writeFileSync(`public/flexsearch_index__${lng}.json`, JSON.stringify({
       index: indexStore,
-      store,
-    }
+      store
+    }));
   })
-
-  fs.writeFileSync('public/flexsearch_index.json', JSON.stringify(fullIndex))
 }

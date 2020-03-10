@@ -1,9 +1,5 @@
-/** @define {boolean} */ const SUPPORT_LANG_EN = true
-
-if (SUPPORT_LANG_EN) {
-  // noinspection ThisExpressionReferencesGlobalObjectJS
-  ;(function(root) {
-    FlexSearch.registerLanguage(
+module.exports = (FlexSearch) => {
+  FlexSearch.registerLanguage(
       'en',
       /** @const */ {
         /**
@@ -274,6 +270,5 @@ if (SUPPORT_LANG_EN) {
           ic: '',
         },
       }
-    )
-  })(this)
-}
+  );
+};
