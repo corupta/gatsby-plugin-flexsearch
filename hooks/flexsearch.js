@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const React = require('re')
 import FlexSearch from 'flexsearch';
 import en from '../lang/en';
 import de from '../lang/de';
@@ -68,7 +69,7 @@ const subscribe = (language, setFlexSearch) => {
 };
 
 const useFlexSearch = (language) => {
-    [flexSearch, setFlexSearch] = useState(__FLEXSEARCH__[language]);
+    const [flexSearch, setFlexSearch] = useState(__FLEXSEARCH__[language]);
     useEffect(() => {
         const unsubscribe = subscribe(language, setFlexSearch);
         if (!flexSearch) {
