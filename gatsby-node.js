@@ -36,8 +36,8 @@ exports.onPostBootstrap = function(_ref, options) {
 
         // load language files if needed by stemmer or filter
         if (
-          index_.attrs.stemmer !== undefined ||
-          index_.attrs.filter !== undefined
+          attrs.stemmer !== undefined ||
+          attrs.filter !== undefined
         ) {
           try {
             if (lng === 'en') {
