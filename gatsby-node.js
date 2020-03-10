@@ -66,12 +66,13 @@ exports.onPostBootstrap = function(_ref, options) {
         .forEach((n, i) => {
           const id = i
           if (index_.indexed) {
-            const content = _.get(n, index_.resolver)
+            const content = _.get(n, typeof index_.resolver === 'function' ? index_.resolver(lng) : index_.resolver)
             index.values.add(id, content)
           }
           const nodeContent = {}
           fieldsToStore.forEach(field => {
-            nodeContent[field.name] = _.get(n, field.resolver)
+
+            nodeContent[field.name] = _.get(n, typeof field.resolver === 'function' ? field.resolver(lng) : field.resolver)
           })
           if (!nid.includes(id)) {
             store.push({ id, node: nodeContent })
