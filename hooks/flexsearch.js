@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-const React = require('re')
-import FlexSearch from 'flexsearch';
-import en from '../lang/en';
-import de from '../lang/de';
+const { useState, useEffect } = require('react');
+const FlexSearch = require('flexsearch');
 
 const __FLEXSEARCH__ = {};
 
@@ -11,7 +8,7 @@ const subscriptions = {};
 const loadIndex = (() => {
     const status = {};
     return (language) => {
-        if (status[languasge]) {
+        if (status[language]) {
             return;
         }
         if (!status[language]) {
@@ -32,9 +29,9 @@ const loadIndex = (() => {
                     ) {
                         try {
                             if (language === 'en') {
-                                en(FlexSearch);
+                                require('../lang/en')(FlexSearch);
                             } else if (language === 'de') {
-                                de(FlexSearch);
+                                require('../lang/de')(FlexSearch);
                             } else {
                                 console.error(
                                     'Language not supported by pre-defined stemmer or filter'
@@ -85,4 +82,4 @@ const useFlexSearch = (language) => {
     return flexSearch;
 };
 
-export default useFlexSearch;
+module.exports = useFlexSearch;

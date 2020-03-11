@@ -1,3 +1,3 @@
 //
-import useFlexSearch from './hooks/flexsearch';
-export { useFlexSearch };
+const useFlexSearch = require('./hooks/flexsearch');
+module.exports = { useFlexSearch };
